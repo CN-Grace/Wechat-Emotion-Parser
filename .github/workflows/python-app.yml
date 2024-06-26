@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
+        pip install flake8 pyinstaller
         if (Test-Path requirements.txt) { pip install -r requirements.txt }
       shell: pwsh
 
@@ -34,3 +34,14 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       shell: pwsh
+
+    - name: Build executable with PyInstaller
+      run: |
+        pyinstaller --onefile your_script.py --name Wechat-Emotion-Parser
+      shell: pwsh
+
+    - name: Archive build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Wechat-Emotion-Parser
+        path: dist/Wechat-Emotion-Parser.exe
