@@ -37,7 +37,7 @@ jobs:
 
     - name: Build executable with PyInstaller
       run: |
-        pyinstaller --onefile your_script.py --name Wechat-Emotion-Parser
+        pyinstaller --onefile main.py --name Wechat-Emotion-Parser
       shell: pwsh
 
     - name: Archive build artifact
