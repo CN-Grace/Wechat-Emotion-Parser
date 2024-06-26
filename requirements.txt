@@ -1,0 +1,4 @@
+psutil
+pymem
+pywin32
+pycryptodomex
