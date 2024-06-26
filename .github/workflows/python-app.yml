@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: windows10
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
